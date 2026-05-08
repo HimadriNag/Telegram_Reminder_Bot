@@ -40,9 +40,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Hello Himadri 👋\n\n"
         "Send me your daily tasks.\n"
         "I will remind you at:\n\n"
-        "🕗 8 AM\n"
+        "🕗 6 AM\n"
         "🕑 2 PM\n"
-        "🌙 8 PM\n\n"
+        "🌙 6 PM\n\n"
         "Example:\n"
         "- Attend Signals class\n"
         "- Solve DSA\n"
@@ -73,9 +73,9 @@ async def save_user_tasks(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "✅ Tasks saved successfully!\n\n"
         "You will receive reminders at:\n"
-        "🕗 8 AM\n"
+        "🕗 6 AM\n"
         "🕑 2 PM\n"
-        "🌙 8 PM"
+        "🌙 6 PM"
     )
 
 
@@ -175,11 +175,11 @@ def main():
     # Scheduler
     scheduler = AsyncIOScheduler()
 
-    # 8 AM
+    # 6 AM
     scheduler.add_job(
         send_morning_reminder,
         trigger="cron",
-        hour=8,
+        hour=6,
         minute=0,
         args=[app]
     )
@@ -193,11 +193,11 @@ def main():
         args=[app]
     )
 
-    # 8 PM
+    # 6 PM
     scheduler.add_job(
         send_night_reminder,
         trigger="cron",
-        hour=20,
+        hour=18,
         minute=0,
         args=[app]
     )
